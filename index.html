@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+    <title>CBC APP - Admin Dashboard</title>
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Top Blue Bar -->
+      <div class="top-blue-bar"></div>
+
+      <!-- Top App Bar -->
+      <header class="top-app-bar">
+        <div class="app-bar-left">
+          <img src="assets/cbc-logo-official.png" width="85px" alt="cbc-logo" />
+          <div class="school-badge">
+            <span class="school-name">Harambe Primary School</span>
+          </div>
+        </div>
+        <div class="app-bar-right">
+          <div class="school-session-badge">
+            <span class="school-session">School Year 2025</span>
+            <span class="material-icons">help_outline</span>
+          </div>
+          <div class="profile-section" onclick="toggleProfileMenu()">
+            <div class="profile-avatar">
+              <img src="assets/profile-logo.png" width="30px" alt="user icon" />
+            </div>
+
+            <span>Florence Wanjiku </span>
+            <span class="material-icons">expand_more</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Layout -->
+      <div class="main-layout">
+        <!-- Navigation Rail -->
+        <nav class="nav-rail">
+          <div class="nav-group">
+            <a href="#" class="nav-item">
+              <span class="material-icons">dashboard</span>
+              <span class="nav-item-text">Dashboard</span>
+            </a>
+          </div>
+
+          <div class="nav-group">
+            <a href="#" class="nav-item">
+              <span class="material-icons">class</span>
+              <span class="nav-item-text">Classes In Session</span>
+            </a>
+            <a href="#" class="nav-item">
+              <span class="material-icons">group</span>
+              <span class="nav-item-text">Manage Teachers</span>
+            </a>
+            <a href="#" class="nav-item">
+              <span class="material-icons">admin_panel_settings</span>
+              <span class="nav-item-text">Role Management</span>
+            </a>
+            <a href="#" class="nav-item">
+              <span class="material-icons">how_to_reg</span>
+              <span class="nav-item-text">Attendance Register</span>
+            </a>
+            <a href="#" class="nav-item">
+              <span class="material-icons">report</span>
+              <span class="nav-item-text">Incident Reports</span>
+            </a>
+          </div>
+
+          <div class="nav-group">
+            <a href="#" class="nav-item active">
+              <span class="material-icons">fact_check</span>
+              <span class="nav-item-text">Formative Assessments</span>
+            </a>
+            <a href="#" class="nav-item">
+              <span class="material-icons">assessment</span>
+              <span class="nav-item-text">Summative Assessments</span>
+            </a>
+            <a href="#" class="nav-item">
+              <span class="material-icons">folder</span>
+              <span class="nav-item-text">Reports</span>
+            </a>
+            <a href="#" class="nav-item">
+              <span class="material-icons">insights</span>
+              <span class="nav-item-text">Analytics</span>
+            </a>
+          </div>
+
+          <div class="nav-group">
+            <a href="#" class="nav-item">
+              <span class="material-icons">settings</span>
+              <span class="nav-item-text">Configuration</span>
+            </a>
+            <a href="#" class="nav-item">
+              <span class="material-icons">business</span>
+              <span class="nav-item-text">School Setup</span>
+            </a>
+            <a href="#" class="nav-item">
+              <span class="material-icons">calendar_month</span>
+              <span class="nav-item-text">School Sessions</span>
+            </a>
+            <a href="#" class="nav-item">
+              <span class="material-icons">school</span>
+              <span class="nav-item-text">Graduation</span>
+            </a>
+          </div>
+        </nav>
+
+        <!-- Content Area -->
+        <main class="content-area">
+          <!-- Content Top Bar -->
+          <div class="content-top-bar">
+            <div class="title-container">
+              <!-- <span class="material-icons back-icon">arrow_back</span> -->
+              <h1 class="content-title">Formative Assessments</h1>
+              <span class="material-icons">navigate_next</span>
+              <h2 class="content-subtitle">Grade 7 East</h2>
+            </div>
+
+            <div class="content-controls">
+              <button class="text-button" onclick="showWeeksDropdown()">
+                <span>All Weeks</span>
+                <span class="material-icons">expand_more</span>
+              </button>
+              <button class="outlined-button" onclick="showTermDropdown()">
+                <span>Term Two</span>
+                <span class="material-icons">expand_more</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Main Content -->
+          <div class="main-content">
+            <!-- Chart Section -->
+            <section class="chart-section">
+              <div class="chart-container">
+                <h2 class="chart-title">Assessment Submission Rate</h2>
+                <div class="chart-placeholder">Bar graph displayed here</div>
+              </div>
+              <div class="summary-cards">
+                <div class="summary-card">
+                  <div class="summary-card-content">
+                    <div class="title">Total Submitted</div>
+                    <h3>342</h3>
+                    <div class="subtitle">This Term</div>
+                  </div>
+                  <div class="summary-card-icon icon-warning">
+                    <span class="material-icons">assignment</span>
+                  </div>
+                </div>
+                <div class="summary-card">
+                  <div class="summary-card-content">
+                    <div class="title">Asessment Per Teacher</div>
+                    <h3>89</h3>
+                    <div class="subtitle">9.2 per teacher per week</div>
+                  </div>
+                  <div class="summary-card-icon icon-info">
+                    <span class="material-icons">arrow_outward</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Table Section -->
+            <section class="table-container">
+              <div class="title-section">
+                <h2>Class Submissions Summary</h2>
+
+                <!-- Bulk Actions -->
+                <div class="bulk-actions" id="bulkActions">
+                  <button class="bulk-action-btn" onclick="showDialog('verify-bulk')">
+                    <span class="material-icons">check</span>
+                    Verify
+                  </button>
+                  <button class="bulk-action-btn" onclick="showDialog('unverify-bulk')">
+                    <span class="material-icons">block</span>
+                    Unverify
+                  </button>
+                  <button class="bulk-action-btn" onclick="showDialog('return-bulk')">
+                    <span class="material-icons">undo</span>
+                    Return
+                  </button>
+                </div>
+              </div>
+
+              <!-- Data Table -->
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th><input type="checkbox" class="checkbox" id="selectAll" onchange="toggleSelectAll()" /></th>
+                    <th>Classes</th>
+                    <th>Class Teacher</th>
+                    <th>Submitted</th>
+                    <th>% Verified</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><input type="checkbox" class="checkbox" name="selectRow" /></td>
+                    <td>Grade 1 Apple</td>
+                    <td>Tr. John Doe</td>
+                    <td>25/56</td>
+                    <td>80%</td>
+                    <td>
+                      <span class="status-badge status-pending">Need support</span>
+                    </td>
+                    <td>
+                      <span class="material-icons action-icon" onclick="showDialog('verify')">more_horiz</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" class="checkbox" name="selectRow" /></td>
+                    <td>Grade 7 East</td>
+                    <td>Tr. John Doe</td>
+                    <td>25/56</td>
+                    <td>80%</td>
+                    <td>
+                      <span class="status-badge status-verified">On track</span>
+                    </td>
+                    <td>
+                      <span class="material-icons action-icon" onclick="showDialog('verify')">more_horiz</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" class="checkbox" name="selectRow" /></td>
+                    <td>Grade 2 North</td>
+                    <td>Tr. John Doe</td>
+                    <td>25/56</td>
+                    <td>80%</td>
+                    <td>
+                      <span class="status-badge status-overdue">Very low</span>
+                    </td>
+                    <td>
+                      <span class="material-icons action-icon" onclick="showDialog('verify')">more_horiz</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div class="footer-section">
+                <!-- footer items here -->
+              </div>
+            </section>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
