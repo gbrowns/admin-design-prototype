@@ -55,6 +55,7 @@ body {
   font-size: 14px;
   font-weight: 500;
   text-transform: capitalize;
+  white-space: nowrap;
 }
 .top-app-bar .app-bar-right {
   display: flex;
@@ -75,7 +76,8 @@ body {
 .top-app-bar .app-bar-right .school-session-badge .school-session {
   display: inline-block;
   text-transform: capitalize;
-  font-weight: 0;
+  font-weight: 400;
+  white-space: nowrap;
 }
 .top-app-bar .app-bar-right .profile-section {
   display: flex;
@@ -100,6 +102,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 .top-app-bar .app-bar-right .profile-section .profile-avatar img {
   border-radius: 50%;
@@ -155,10 +158,13 @@ body {
 .nav-rail .nav-item .material-icons {
   font-size: 22px;
   color: inherit;
+  flex-shrink: 0;
 }
 .nav-rail .nav-item .nav-item-text {
   flex: 1;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .content-area {
@@ -182,25 +188,35 @@ body {
   display: flex;
   align-items: center;
   gap: 16px;
+  min-width: 0;
+  flex: 1;
 }
 .content-top-bar .title-container .back-icon {
   cursor: pointer;
+  flex-shrink: 0;
 }
 .content-top-bar .title-container .content-title {
   font-size: 18px;
   font-weight: 600;
   color: #2b2b2b;
   margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .content-top-bar .title-container .content-subtitle {
   font-size: 16px;
   color: #888888;
   margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .content-top-bar .content-controls {
   display: flex;
   gap: 16px;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .main-content {
@@ -226,6 +242,7 @@ body {
   border: none;
   text-decoration: none;
   color: #2b2b2b;
+  white-space: nowrap;
 }
 
 .outlined-button {
@@ -245,6 +262,7 @@ body {
   background-color: #ffffff;
   border-radius: 12px;
   padding: 24px;
+  min-width: 0;
 }
 .chart-container .chart-title {
   font-size: 16px;
@@ -269,6 +287,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  min-width: 0;
 }
 
 .summary-card {
@@ -279,6 +298,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  min-height: 100px;
+}
+.summary-card .summary-card-content {
+  flex: 1;
+  min-width: 0;
 }
 .summary-card .summary-card-content .title {
   font-size: 14px;
@@ -293,6 +317,7 @@ body {
   font-weight: 700;
   color: #2b2b2b;
   margin-bottom: 4px;
+  line-height: 1.2;
 }
 .summary-card .summary-card-content .subtitle {
   font-size: 12px;
@@ -305,6 +330,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 .summary-card .summary-card-icon.icon-success {
   background-color: rgba(46, 125, 50, 0.1);
@@ -336,6 +362,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 .table-container .title-section h2 {
   font-size: 16px;
@@ -378,6 +406,7 @@ body {
   text-transform: capitalize;
   letter-spacing: 0.5px;
   text-align: center;
+  white-space: nowrap;
 }
 .data-table th:first-child {
   width: 10px;
@@ -434,6 +463,7 @@ body {
   font-size: 12px;
   font-weight: 600;
   text-transform: capitalize;
+  white-space: nowrap;
 }
 .status-badge.status-submitted {
   background-color: rgba(46, 125, 50, 0.1);
@@ -465,6 +495,7 @@ body {
   font-size: 12px;
   font-weight: 500;
   transition: all 0.2s ease;
+  white-space: nowrap;
 }
 .action-btn:hover {
   background-color: #e8ddff;
@@ -496,6 +527,7 @@ body {
   font-size: 14px;
   cursor: pointer;
   transition: background-color 0.2s ease;
+  white-space: nowrap;
 }
 .dropdown .dropdown-item:hover {
   background-color: #e7e0ec;
@@ -510,6 +542,7 @@ body {
 @media (max-width: 1200px) {
   .chart-section {
     flex-direction: column;
+    gap: 24px;
   }
   .summary-cards {
     flex-direction: row;
@@ -517,9 +550,37 @@ body {
   }
   .summary-card {
     flex: 1;
+    min-width: 200px;
+  }
+}
+@media (max-width: 1024px) {
+  .content-area {
+    padding: 24px;
+  }
+  .top-app-bar {
+    padding: 0 24px;
+  }
+  .chart-container .chart-placeholder {
+    height: 200px;
+  }
+  .summary-card {
+    padding: 16px;
+  }
+  .summary-card .summary-card-content h3 {
+    font-size: 24px;
+  }
+  .summary-card .summary-card-icon {
+    width: 50px;
+    height: 50px;
+  }
+  .summary-card .summary-card-icon .material-icons {
+    font-size: 24px;
   }
 }
 @media (max-width: 768px) {
+  body {
+    font-size: 13px;
+  }
   .nav-rail {
     width: 72px;
   }
@@ -528,68 +589,173 @@ body {
   }
   .nav-rail .nav-item {
     justify-content: center;
-    padding: 16px;
+    padding: 12px;
     margin-right: 0;
     border-radius: 0;
   }
+  .content-area {
+    padding: 12px;
+  }
   .content-top-bar {
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
     align-items: flex-start;
-    padding: 16px;
+    padding: 12px;
+  }
+  .content-top-bar .title-container {
+    width: 100%;
+  }
+  .content-top-bar .title-container .content-title {
+    font-size: 17px;
   }
   .content-top-bar .content-controls {
     width: 100%;
     justify-content: flex-end;
   }
   .main-content {
-    padding: 16px;
+    margin-top: 12px;
   }
   .chart-section {
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  .chart-container {
+    padding: 12px;
+  }
+  .chart-container .chart-placeholder {
+    height: 180px;
+    font-size: 13px;
   }
   .summary-cards {
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
+  }
+  .summary-card {
+    padding: 12px;
+    min-height: 80px;
+  }
+  .summary-card .summary-card-content .title {
+    font-size: 11px;
+    margin-bottom: 3px;
+  }
+  .summary-card .summary-card-content h3 {
+    font-size: 20px;
+    margin-bottom: 3px;
+  }
+  .summary-card .summary-card-content .subtitle {
+    font-size: 9px;
+  }
+  .summary-card .summary-card-icon {
+    width: 40px;
+    height: 40px;
+  }
+  .summary-card .summary-card-icon .material-icons {
+    font-size: 20px;
   }
   .data-table {
-    font-size: 12px;
+    font-size: 11px;
   }
   .data-table th,
   .data-table td {
-    padding: 8px;
+    padding: 6px;
   }
   .data-table th {
-    font-size: 11px;
+    font-size: 9px;
+  }
+  .table-container .title-section {
+    padding: 12px;
+  }
+  .table-container .title-section h2 {
+    font-size: 15px;
   }
   .bulk-actions {
-    padding: 8px;
+    gap: 12px;
     flex-wrap: wrap;
   }
-  .app-bar-left .school-name {
-    display: none;
+  .top-app-bar {
+    height: 56px;
+    padding: 0 12px;
+  }
+  .top-app-bar .app-bar-left {
+    gap: 12px;
+  }
+  .top-app-bar .app-bar-left .school-badge {
+    padding: 3px 12px;
+  }
+  .top-app-bar .app-bar-left .school-badge .school-name {
+    font-size: 11px;
+  }
+  .top-app-bar .app-bar-right {
+    gap: 6px;
+  }
+  .top-app-bar .app-bar-right .school-session-badge {
+    padding: 3px 6px;
+  }
+  .top-app-bar .app-bar-right .school-session-badge .school-session {
+    font-size: 11px;
+  }
+  .top-app-bar .app-bar-right .profile-section {
+    font-size: 11px;
+  }
+  .top-app-bar .app-bar-right .profile-section .profile-avatar {
+    width: 28px;
+    height: 28px;
   }
 }
 @media (max-width: 480px) {
   .top-app-bar {
-    padding: 0 8px;
+    padding: 0 6px;
+  }
+  .top-app-bar .app-bar-left .school-name {
+    display: none;
   }
   .profile-section span:not(.material-icons) {
     display: none;
   }
   .content-top-bar .content-title {
-    font-size: 18px;
+    font-size: 15px;
   }
-  .main-content {
-    padding: 8px;
+  .content-area {
+    padding: 6px;
   }
   .chart-container,
-  .table-section {
+  .table-container {
     border-radius: 8px;
   }
   .summary-card {
-    padding: 16px;
+    padding: 6px;
+  }
+  .summary-card .summary-card-content h3 {
+    font-size: 17px;
+  }
+  .outlined-button,
+  .text-button,
+  .table-container .title-section .bulk-actions .bulk-action-btn {
+    padding: 3px 6px;
+    font-size: 11px;
+  }
+  .status-badge {
+    padding: 3px 6px;
+    font-size: 9px;
+  }
+  .action-btn {
+    padding: 3px;
+    font-size: 9px;
+  }
+}
+@media (max-width: 320px) {
+  .app-bar-right .school-session-badge {
+    display: none;
+  }
+  .content-top-bar {
+    padding: 6px;
+  }
+  .summary-cards {
+    gap: 3px;
+  }
+  .chart-container .chart-placeholder {
+    height: 150px;
   }
 }
 .hidden {
@@ -670,6 +836,13 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #6b616e;
+}
+
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
